@@ -30,7 +30,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cp -af Products/%{zope_subname}/{Extensions,i18n,skins,*.py,version.txt,refresh.txt} \
-    $RPM_BUILD_ROOT%{_datadir}/%{name}
+	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -48,10 +48,10 @@ fi
 
 %postun
 if [ "$1" = "0" ]; then
-        /usr/sbin/installzopeproduct -d %{zope_subname}
-        if [ -f /var/lock/subsys/zope ]; then
-                /etc/rc.d/init.d/zope restart >&2
-        fi
+	/usr/sbin/installzopeproduct -d %{zope_subname}
+	if [ -f /var/lock/subsys/zope ]; then
+	/etc/rc.d/init.d/zope restart >&2
+	fi
 fi
 
 %files
