@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CPSSkinsTutorial
 Summary:	Tutorial for CPSSkins
 Summary(pl):	Samouczek dla CPSSkins
