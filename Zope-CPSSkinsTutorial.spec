@@ -10,6 +10,7 @@ Source0:	http://www.medic.chalmers.se/~jmo/CPS/%{zope_subname}%{version}.tgz
 # Source0-md5:	3ac2fcee53fcef9f244cb6b06d696a8c
 URL:		http://www.medic.chalmers.se/~jmo/CPS/
 Requires(post,postun):	/usr/sbin/installzopeproduct
+BuildRequires:  python
 %pyrequires_eq	python-modules
 Requires:	Zope
 Requires:	Zope-CPSSkins
