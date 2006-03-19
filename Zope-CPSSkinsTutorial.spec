@@ -9,8 +9,9 @@ Group:		Development/Tools
 Source0:	http://www.medic.chalmers.se/~jmo/CPS/%{zope_subname}%{version}.tgz
 # Source0-md5:	3ac2fcee53fcef9f244cb6b06d696a8c
 URL:		http://www.medic.chalmers.se/~jmo/CPS/
-Requires(post,postun):	/usr/sbin/installzopeproduct
 BuildRequires:	python
+BuildRequires:	rpmbuild(macros) >= 1.268
+Requires(post,postun):	/usr/sbin/installzopeproduct
 %pyrequires_eq	python-modules
 Requires:	Zope
 Requires:	Zope-CPSSkins
@@ -43,16 +44,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
-fi
+%service -q zope restart
 
 %postun
 if [ "$1" = "0" ]; then
 	/usr/sbin/installzopeproduct -d %{zope_subname}
-	if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
-	fi
+	%service -q zope restart
 fi
 
 %files
