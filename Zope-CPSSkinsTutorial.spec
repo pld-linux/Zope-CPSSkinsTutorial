@@ -1,6 +1,6 @@
 %define		zope_subname	CPSSkinsTutorial
 Summary:	Tutorial for CPSSkins
-Summary(pl.UTF-8):   Samouczek dla CPSSkins
+Summary(pl.UTF-8):	Samouczek dla CPSSkins
 Name:		Zope-%{zope_subname}
 Version:	0.2
 Release:	1
